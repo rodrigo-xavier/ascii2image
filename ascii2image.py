@@ -27,7 +27,7 @@ def common_ascii(args):
 
         image1 = Image.new("RGB", ANCHOR, str2tuple(args.b))
         draw1 = ImageDraw.Draw(image1)
-        x, y, width, height = draw1.multiline_textbbox(ANCHOR, f.read(), font)
+        x, y, width, height = draw1.multiline_textbbox(ANCHOR, f.read(), font=font)
 
         f.seek(0)
 
@@ -43,24 +43,32 @@ def xterm_ascii(args):
 
         image1 = Image.new("RGB", ANCHOR, str2tuple(args.b))
         draw1 = ImageDraw.Draw(image1)
-        x, y, width, height = draw1.multiline_textbbox(ANCHOR, f.read(), font)
+        x, y, width, height = draw1.multiline_textbbox(ANCHOR, f.read(), font=font)
+
+        # Gambiarra para diminuir o tamanho da imagem de forma proposital
+        width = int((width*5.5)/100)
 
         f.seek(0)
 
         image2 = Image.new("RGB", (width, height), str2tuple(args.b))
         draw2 = ImageDraw.Draw(image2)
 
-        # x, y = 0, 0
-        # for line in f.readlines():
-        #     line = decode_xterm256(line)
 
-        #     for i in line:
-        #         draw1.text((x,y), i[0] ,font=font, fill=i[1])
-        #         letter = image1.crop((x+))
-        #         image2.paste(letter, ())
-        #         x = x + width
-        #     y = y + height
-        #     x = 0
+        # x, y = 0, 0
+        for line in f.readlines():
+            line = decode_xterm256(line)
+            max_y = 0
+            x = 0
+
+            for i in line:
+                draw2.text((x,y), i[0] ,font=font, fill=i[1])
+                # image2.paste(letter, ())
+                letter_x, letter_y = draw2.textsize(i[0], font=font)
+
+                max_y = max(max_y, letter_y)
+
+                x = x + letter_x
+            y = y + max_y
 
         image2.save(args.ascii + '.png', "PNG")
 
