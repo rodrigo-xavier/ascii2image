@@ -1,3 +1,4 @@
+```
 usage: ASCII to Image [-h] [-x] [-b N N N] [-c N N N] [--font F] [--fsize FSIZE] ascii
 
 positional arguments:
@@ -10,3 +11,4 @@ optional arguments:
   -c N N N       Put here the color of your text ASCII. Default = (0,0,0)
   --font F       Choose a Font Type that you like from fonts.txt. Default = Hack-BoldItalic
   --fsize FSIZE  Choose the font size you need. Default = 20
+```

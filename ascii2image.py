@@ -62,7 +62,6 @@ def xterm_ascii(args):
 
             for i in line:
                 draw2.text((x,y), i[0] ,font=font, fill=i[1])
-                # image2.paste(letter, ())
                 letter_x, letter_y = draw2.textsize(i[0], font=font)
 
                 max_y = max(max_y, letter_y)
