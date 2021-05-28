@@ -4,280 +4,287 @@ CLUT = [  # color look-up table
 #    8-bit, RGB hex
 
     # Primary 3-bit (8 colors). Unique representation!
-    '#000000',
-    '#800000',
-    '#008000',
-    '#808000',
-    '#000080',
-    '#800080',
-    '#008080',
-    '#c0c0c0',
+    0x000000, # #000000
+    0x800000, # #800000
+    0x008000, # #008000
+    0x808000, # #808000
+    0x000080, # #000080
+    0x800080, # #800080
+    0x008080, # #008080
+    0xc0c0c0, # #c0c0c0
 
     # Equivalent "bright" versions of original 8 colors.
-    '#808080',
-    '#ff0000',
-    '#00ff00',
-    '#ffff00',
-    '#0000ff',
-    '#ff00ff',
-    '#00ffff',
-    '#ffffff',
+    0x808080, # #808080
+    0xff0000, # #ff0000
+    0x00ff00, # #00ff00
+    0xffff00, # #ffff00
+    0x0000ff, # #0000ff
+    0xff00ff, # #ff00ff
+    0x00ffff, # #00ffff
+    0xffffff, # #ffffff
 
     # Strictly ascending.
-    '#000000',
-    '#00005f',
-    '#000087',
-    '#0000af',
-    '#0000d7',
-    '#0000ff',
-    '#005f00',
-    '#005f5f',
-    '#005f87',
-    '#005faf',
-    '#005fd7',
-    '#005fff',
-    '#008700',
-    '#00875f',
-    '#008787',
-    '#0087af',
-    '#0087d7',
-    '#0087ff',
-    '#00af00',
-    '#00af5f',
-    '#00af87',
-    '#00afaf',
-    '#00afd7',
-    '#00afff',
-    '#00d700',
-    '#00d75f',
-    '#00d787',
-    '#00d7af',
-    '#00d7d7',
-    '#00d7ff',
-    '#00ff00',
-    '#00ff5f',
-    '#00ff87',
-    '#00ffaf',
-    '#00ffd7',
-    '#00ffff',
-    '#5f0000',
-    '#5f005f',
-    '#5f0087',
-    '#5f00af',
-    '#5f00d7',
-    '#5f00ff',
-    '#5f5f00',
-    '#5f5f5f',
-    '#5f5f87',
-    '#5f5faf',
-    '#5f5fd7',
-    '#5f5fff',
-    '#5f8700',
-    '#5f875f',
-    '#5f8787',
-    '#5f87af',
-    '#5f87d7',
-    '#5f87ff',
-    '#5faf00',
-    '#5faf5f',
-    '#5faf87',
-    '#5fafaf',
-    '#5fafd7',
-    '#5fafff',
-    '#5fd700',
-    '#5fd75f',
-    '#5fd787',
-    '#5fd7af',
-    '#5fd7d7',
-    '#5fd7ff',
-    '#5fff00',
-    '#5fff5f',
-    '#5fff87',
-    '#5fffaf',
-    '#5fffd7',
-    '#5fffff',
-    '#870000',
-    '#87005f',
-    '#870087',
-    '#8700af',
-    '#8700d7',
-    '#8700ff',
-    '#875f00',
-    '#875f5f',
-    '#875f87',
-    '#875faf',
-    '#875fd7',
-    '#875fff',
-    '#878700',
-    '#87875f',
-    '#878787',
-    '#8787af',
-    '#8787d7',
-    '#8787ff',
-    '#87af00',
-    '#87af5f',
-    '#87af87',
-    '#87afaf',
-    '#87afd7',
-    '#87afff',
-    '#87d700',
-    '#87d75f',
-    '#87d787',
-    '#87d7af',
-    '#87d7d7',
-    '#87d7ff',
-    '#87ff00',
-    '#87ff5f',
-    '#87ff87',
-    '#87ffaf',
-    '#87ffd7',
-    '#87ffff',
-    '#af0000',
-    '#af005f',
-    '#af0087',
-    '#af00af',
-    '#af00d7',
-    '#af00ff',
-    '#af5f00',
-    '#af5f5f',
-    '#af5f87',
-    '#af5faf',
-    '#af5fd7',
-    '#af5fff',
-    '#af8700',
-    '#af875f',
-    '#af8787',
-    '#af87af',
-    '#af87d7',
-    '#af87ff',
-    '#afaf00',
-    '#afaf5f',
-    '#afaf87',
-    '#afafaf',
-    '#afafd7',
-    '#afafff',
-    '#afd700',
-    '#afd75f',
-    '#afd787',
-    '#afd7af',
-    '#afd7d7',
-    '#afd7ff',
-    '#afff00',
-    '#afff5f',
-    '#afff87',
-    '#afffaf',
-    '#afffd7',
-    '#afffff',
-    '#d70000',
-    '#d7005f',
-    '#d70087',
-    '#d700af',
-    '#d700d7',
-    '#d700ff',
-    '#d75f00',
-    '#d75f5f',
-    '#d75f87',
-    '#d75faf',
-    '#d75fd7',
-    '#d75fff',
-    '#d78700',
-    '#d7875f',
-    '#d78787',
-    '#d787af',
-    '#d787d7',
-    '#d787ff',
-    '#d7af00',
-    '#d7af5f',
-    '#d7af87',
-    '#d7afaf',
-    '#d7afd7',
-    '#d7afff',
-    '#d7d700',
-    '#d7d75f',
-    '#d7d787',
-    '#d7d7af',
-    '#d7d7d7',
-    '#d7d7ff',
-    '#d7ff00',
-    '#d7ff5f',
-    '#d7ff87',
-    '#d7ffaf',
-    '#d7ffd7',
-    '#d7ffff',
-    '#ff0000',
-    '#ff005f',
-    '#ff0087',
-    '#ff00af',
-    '#ff00d7',
-    '#ff00ff',
-    '#ff5f00',
-    '#ff5f5f',
-    '#ff5f87',
-    '#ff5faf',
-    '#ff5fd7',
-    '#ff5fff',
-    '#ff8700',
-    '#ff875f',
-    '#ff8787',
-    '#ff87af',
-    '#ff87d7',
-    '#ff87ff',
-    '#ffaf00',
-    '#ffaf5f',
-    '#ffaf87',
-    '#ffafaf',
-    '#ffafd7',
-    '#ffafff',
-    '#ffd700',
-    '#ffd75f',
-    '#ffd787',
-    '#ffd7af',
-    '#ffd7d7',
-    '#ffd7ff',
-    '#ffff00',
-    '#ffff5f',
-    '#ffff87',
-    '#ffffaf',
-    '#ffffd7',
-    '#ffffff',
+    0x000000, # #000000
+    0x00005f, # #00005f
+    0x000087, # #000087
+    0x0000af, # #0000af
+    0x0000d7, # #0000d7
+    0x0000ff, # #0000ff
+    0x005f00, # #005f00
+    0x005f5f, # #005f5f
+    0x005f87, # #005f87
+    0x005faf, # #005faf
+    0x005fd7, # #005fd7
+    0x005fff, # #005fff
+    0x008700, # #008700
+    0x00875f, # #00875f
+    0x008787, # #008787
+    0x0087af, # #0087af
+    0x0087d7, # #0087d7
+    0x0087ff, # #0087ff
+    0x00af00, # #00af00
+    0x00af5f, # #00af5f
+    0x00af87, # #00af87
+    0x00afaf, # #00afaf
+    0x00afd7, # #00afd7
+    0x00afff, # #00afff
+    0x00d700, # #00d700
+    0x00d75f, # #00d75f
+    0x00d787, # #00d787
+    0x00d7af, # #00d7af
+    0x00d7d7, # #00d7d7
+    0x00d7ff, # #00d7ff
+    0x00ff00, # #00ff00
+    0x00ff5f, # #00ff5f
+    0x00ff87, # #00ff87
+    0x00ffaf, # #00ffaf
+    0x00ffd7, # #00ffd7
+    0x00ffff, # #00ffff
+    0x5f0000, # #5f0000
+    0x5f005f, # #5f005f
+    0x5f0087, # #5f0087
+    0x5f00af, # #5f00af
+    0x5f00d7, # #5f00d7
+    0x5f00ff, # #5f00ff
+    0x5f5f00, # #5f5f00
+    0x5f5f5f, # #5f5f5f
+    0x5f5f87, # #5f5f87
+    0x5f5faf, # #5f5faf
+    0x5f5fd7, # #5f5fd7
+    0x5f5fff, # #5f5fff
+    0x5f8700, # #5f8700
+    0x5f875f, # #5f875f
+    0x5f8787, # #5f8787
+    0x5f87af, # #5f87af
+    0x5f87d7, # #5f87d7
+    0x5f87ff, # #5f87ff
+    0x5faf00, # #5faf00
+    0x5faf5f, # #5faf5f
+    0x5faf87, # #5faf87
+    0x5fafaf, # #5fafaf
+    0x5fafd7, # #5fafd7
+    0x5fafff, # #5fafff
+    0x5fd700, # #5fd700
+    0x5fd75f, # #5fd75f
+    0x5fd787, # #5fd787
+    0x5fd7af, # #5fd7af
+    0x5fd7d7, # #5fd7d7
+    0x5fd7ff, # #5fd7ff
+    0x5fff00, # #5fff00
+    0x5fff5f, # #5fff5f
+    0x5fff87, # #5fff87
+    0x5fffaf, # #5fffaf
+    0x5fffd7, # #5fffd7
+    0x5fffff, # #5fffff
+    0x870000, # #870000
+    0x87005f, # #87005f
+    0x870087, # #870087
+    0x8700af, # #8700af
+    0x8700d7, # #8700d7
+    0x8700ff, # #8700ff
+    0x875f00, # #875f00
+    0x875f5f, # #875f5f
+    0x875f87, # #875f87
+    0x875faf, # #875faf
+    0x875fd7, # #875fd7
+    0x875fff, # #875fff
+    0x878700, # #878700
+    0x87875f, # #87875f
+    0x878787, # #878787
+    0x8787af, # #8787af
+    0x8787d7, # #8787d7
+    0x8787ff, # #8787ff
+    0x87af00, # #87af00
+    0x87af5f, # #87af5f
+    0x87af87, # #87af87
+    0x87afaf, # #87afaf
+    0x87afd7, # #87afd7
+    0x87afff, # #87afff
+    0x87d700, # #87d700
+    0x87d75f, # #87d75f
+    0x87d787, # #87d787
+    0x87d7af, # #87d7af
+    0x87d7d7, # #87d7d7
+    0x87d7ff, # #87d7ff
+    0x87ff00, # #87ff00
+    0x87ff5f, # #87ff5f
+    0x87ff87, # #87ff87
+    0x87ffaf, # #87ffaf
+    0x87ffd7, # #87ffd7
+    0x87ffff, # #87ffff
+    0xaf0000, # #af0000
+    0xaf005f, # #af005f
+    0xaf0087, # #af0087
+    0xaf00af, # #af00af
+    0xaf00d7, # #af00d7
+    0xaf00ff, # #af00ff
+    0xaf5f00, # #af5f00
+    0xaf5f5f, # #af5f5f
+    0xaf5f87, # #af5f87
+    0xaf5faf, # #af5faf
+    0xaf5fd7, # #af5fd7
+    0xaf5fff, # #af5fff
+    0xaf8700, # #af8700
+    0xaf875f, # #af875f
+    0xaf8787, # #af8787
+    0xaf87af, # #af87af
+    0xaf87d7, # #af87d7
+    0xaf87ff, # #af87ff
+    0xafaf00, # #afaf00
+    0xafaf5f, # #afaf5f
+    0xafaf87, # #afaf87
+    0xafafaf, # #afafaf
+    0xafafd7, # #afafd7
+    0xafafff, # #afafff
+    0xafd700, # #afd700
+    0xafd75f, # #afd75f
+    0xafd787, # #afd787
+    0xafd7af, # #afd7af
+    0xafd7d7, # #afd7d7
+    0xafd7ff, # #afd7ff
+    0xafff00, # #afff00
+    0xafff5f, # #afff5f
+    0xafff87, # #afff87
+    0xafffaf, # #afffaf
+    0xafffd7, # #afffd7
+    0xafffff, # #afffff
+    0xd70000, # #d70000
+    0xd7005f, # #d7005f
+    0xd70087, # #d70087
+    0xd700af, # #d700af
+    0xd700d7, # #d700d7
+    0xd700ff, # #d700ff
+    0xd75f00, # #d75f00
+    0xd75f5f, # #d75f5f
+    0xd75f87, # #d75f87
+    0xd75faf, # #d75faf
+    0xd75fd7, # #d75fd7
+    0xd75fff, # #d75fff
+    0xd78700, # #d78700
+    0xd7875f, # #d7875f
+    0xd78787, # #d78787
+    0xd787af, # #d787af
+    0xd787d7, # #d787d7
+    0xd787ff, # #d787ff
+    0xd7af00, # #d7af00
+    0xd7af5f, # #d7af5f
+    0xd7af87, # #d7af87
+    0xd7afaf, # #d7afaf
+    0xd7afd7, # #d7afd7
+    0xd7afff, # #d7afff
+    0xd7d700, # #d7d700
+    0xd7d75f, # #d7d75f
+    0xd7d787, # #d7d787
+    0xd7d7af, # #d7d7af
+    0xd7d7d7, # #d7d7d7
+    0xd7d7ff, # #d7d7ff
+    0xd7ff00, # #d7ff00
+    0xd7ff5f, # #d7ff5f
+    0xd7ff87, # #d7ff87
+    0xd7ffaf, # #d7ffaf
+    0xd7ffd7, # #d7ffd7
+    0xd7ffff, # #d7ffff
+    0xff0000, # #ff0000
+    0xff005f, # #ff005f
+    0xff0087, # #ff0087
+    0xff00af, # #ff00af
+    0xff00d7, # #ff00d7
+    0xff00ff, # #ff00ff
+    0xff5f00, # #ff5f00
+    0xff5f5f, # #ff5f5f
+    0xff5f87, # #ff5f87
+    0xff5faf, # #ff5faf
+    0xff5fd7, # #ff5fd7
+    0xff5fff, # #ff5fff
+    0xff8700, # #ff8700
+    0xff875f, # #ff875f
+    0xff8787, # #ff8787
+    0xff87af, # #ff87af
+    0xff87d7, # #ff87d7
+    0xff87ff, # #ff87ff
+    0xffaf00, # #ffaf00
+    0xffaf5f, # #ffaf5f
+    0xffaf87, # #ffaf87
+    0xffafaf, # #ffafaf
+    0xffafd7, # #ffafd7
+    0xffafff, # #ffafff
+    0xffd700, # #ffd700
+    0xffd75f, # #ffd75f
+    0xffd787, # #ffd787
+    0xffd7af, # #ffd7af
+    0xffd7d7, # #ffd7d7
+    0xffd7ff, # #ffd7ff
+    0xffff00, # #ffff00
+    0xffff5f, # #ffff5f
+    0xffff87, # #ffff87
+    0xffffaf, # #ffffaf
+    0xffffd7, # #ffffd7
+    0xffffff, # #ffffff
 
     # Gray-scale range.
-    '#080808',
-    '#121212',
-    '#1c1c1c',
-    '#262626',
-    '#303030',
-    '#3a3a3a',
-    '#444444',
-    '#4e4e4e',
-    '#585858',
-    '#626262',
-    '#6c6c6c',
-    '#767676',
-    '#808080',
-    '#8a8a8a',
-    '#949494',
-    '#9e9e9e',
-    '#a8a8a8',
-    '#b2b2b2',
-    '#bcbcbc',
-    '#c6c6c6',
-    '#d0d0d0',
-    '#dadada',
-    '#e4e4e4',
-    '#eeeeee',
+    0x080808, # #080808
+    0x121212, # #121212
+    0x1c1c1c, # #1c1c1c
+    0x262626, # #262626
+    0x303030, # #303030
+    0x3a3a3a, # #3a3a3a
+    0x444444, # #444444
+    0x4e4e4e, # #4e4e4e
+    0x585858, # #585858
+    0x626262, # #626262
+    0x6c6c6c, # #6c6c6c
+    0x767676, # #767676
+    0x808080, # #808080
+    0x8a8a8a, # #8a8a8a
+    0x949494, # #949494
+    0x9e9e9e, # #9e9e9e
+    0xa8a8a8, # #a8a8a8
+    0xb2b2b2, # #b2b2b2
+    0xbcbcbc, # #bcbcbc
+    0xc6c6c6, # #c6c6c6
+    0xd0d0d0, # #d0d0d0
+    0xdadada, # #dadada
+    0xe4e4e4, # #e4e4e4
+    0xeeeeee, # #eeeeee
 ]
 
 # in this piece of code, a split of the read text line is made
 # using regular expressions. The split leaves empty spaces in the list, 
 # and to circumvent this, a for loop is performed on the entire list
-def decode_xterm256(line):
-    decoded = []
+def decode_xterm256(args):
+    with open(args.ascii, 'r') as file:
+        text = ""
+        colors = []
 
-    for i in re.split("[[]|\x1b|38;5;|0;00m|\n", line):
-        if i:
-            hexcode, asciichar = i.split('m')
-            decoded.extend([[asciichar, CLUT[int(hexcode)]]])
-    
-    return decoded
+        for line in file.readlines():
+            for i in re.split("[[]|\x1b|38;5;|0;00m|\n", line):
+                if i:
+                    hexcode, asciichar = i.split('m')
+
+                    colors.append(CLUT[int(hexcode)])
+                    text += asciichar
+
+            text += '\n'
+            
+        return text, colors
         
