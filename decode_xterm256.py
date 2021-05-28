@@ -272,7 +272,7 @@ CLUT = [  # color look-up table
 # using regular expressions. The split leaves empty spaces in the list, 
 # and to circumvent this, a for loop is performed on the entire list
 def decode_xterm256(args):
-    with open(args.ascii, 'r') as file:
+    with open(args.ascii, 'r', encoding="utf8", errors='ignore') as file:
         text = ""
         colors = []
 

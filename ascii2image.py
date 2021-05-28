@@ -1,7 +1,7 @@
 import argparse
 import os
 from decode_xterm256 import decode_xterm256
-from PIL import Image, ImageDraw, ImageOps, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageOps, ImageFont, ImageEnhance
 
 
 ANCHOR = (0, 0)
@@ -14,7 +14,7 @@ def get_args():
     parser.add_argument('-c', default=["255", "255", "255"], metavar='N', type=str, nargs=3, help="Put here the color of your text ASCII. Range[0-255, 0-255, 0-255]. Default = (255,255,255)")
     parser.add_argument('-r', default=["40", "1"], metavar='R', type=int, nargs=2, help="Reduce a percentual space between ASCIIs characters . Range[1-99]. Default = (30, 1)")
     parser.add_argument('--font', default="Hack-BoldItalic", metavar='F', type=str, help="Choose a Font Type that you like from fonts.txt. Default = Hack-BoldItalic")
-    parser.add_argument('--bitwise', default=4, metavar='BT', type=int, help="Hexadecimal Bitwise (Multiply colors). Default = 4")
+    parser.add_argument('--bitwise_xor', default=0, metavar='BT', type=int, help="Hexadecimal Bitwise_xor. Default = 0")
     parser.add_argument('--fsize', default=30, type=int, help="Choose the font size you need. Default = 30")
     args = parser.parse_args()
     return args
@@ -49,18 +49,18 @@ def xterm_ascii(args):
 
         image = Image.new("P", (width, height), list2tuple(args.b))
         draw = ImageDraw.Draw(image)
+        contrast = ImageEnhance.Contrast(image)
+        color = ImageEnhance.Color(image)
 
         index, x, y = 0, 0, 0
 
         for character in text:
             if character != '\n':
-                bitwise = hex(color[index] >> args.bitwise)
-                # bitwise = hex(color[index] ^ args.bitwise)
-                # bitwise = hex(color[index])
-                bitwise = bitwise.ljust(10, '0')
-                bitwise = '#' + bitwise[2:10]
+                bitwise_xor = hex(color[index] ^ args.bitwise_xor)
+                bitwise_xor = bitwise_xor.ljust(10, '0')
+                bitwise_xor = '#' + bitwise_xor[2:10]
                 
-                draw.text((x,y), character ,font=font, fill=bitwise)
+                draw.text((x,y), character ,font=font, fill=bitwise_xor)
                 
                 x += args.r[0]
                 index += 1
@@ -69,13 +69,11 @@ def xterm_ascii(args):
                 y += args.r[1]
         
         image = image.convert('RGB')
-        image = image.filter(ImageFilter.SHARPEN)
-
-        from PIL import ImageEnhance
-        contrast = ImageEnhance.Contrast(image)
-        contrast.enhance(1.0).save(args.ascii + 'contrast.jpg')
+        image = contrast.enhance(1.5)
+        image = color.enhance(2.0)
+        image = image.convert('P')
         
-        # image.save(args.ascii + '.png', "PNG")
+        image.save(args.ascii + '.png', "PNG")
 
 if __name__ == '__main__':
     args = get_args()
@@ -92,7 +90,8 @@ if __name__ == '__main__':
         folder = args.ascii
         for file in os.listdir(args.ascii):
             args.ascii = folder + file
-            if not file.endswith(".png"):
+            if not file.endswith((".png", ".jpg")):
+                print("Opening File: " + args.ascii)
                 if not args.x:
                     common_ascii(args)
                 else:
